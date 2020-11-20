@@ -6,8 +6,8 @@ import tabulate
 import matplotlib.pyplot as plt
 
 # estabelece conexão com o BD
-connection = psycopg2.connect(user="postgres", 
-password = "miromi00", 
+connection = psycopg2.connect(user="milena", 
+password = "17071964", 
 port = "5432", 
 database = "trabalhoFinal")
 
@@ -110,9 +110,10 @@ def inserir():
 	[2]: Colaborador
 	[3]: Setor
 	[4]: Atividade
-	[5]: Pedido e Ordem de Servico
-	[6]: Projeto Web
-	[7]: Cancelar inserção""")
+	[5]: Pedido
+	[6]: Ordem de Servico
+	[7]: Projeto Web
+	[8]: Cancelar inserção""")
 	opt = input("Indique o número da tabela: ")
 
 	if opt == '1':
@@ -125,10 +126,11 @@ def inserir():
 		tweakAtividade('inserir')
 	elif opt == '5':
 		tweakPedido('inserir')
+	elif opt == '6':
 		tweakOrdemdeServico('inserir')
-	elif opt == '6': 
+	elif opt == '7': 
 		tweakProjeto('inserir')
-	elif opt == '7':
+	elif opt == '8':
 		print("Inserção cancelada")
 	else:
 		print("Opção inválida...")
@@ -1601,16 +1603,19 @@ def consulta1():
 	print(tabulate.tabulate(table))
 	print("\n=========================================================\n")
 	
-	plt.bar(nums, medias)
-	plt.title("Consulta 1: \nMédia de salário por setor")
-	plt.ylabel('Média de Salário')
-	plt.xticks(nums, ids)
-	plt.xlabel("ID do setor")
-	plt.grid(b=None, which='major', axis='y')
-	passing = max(medias)-min(medias) if max(medias)-min(medias) <= 500 else 500
-	yticks = [i for i in range(0, int(max(medias)+passing), int(passing))]
-	plt.yticks(yticks)
-	plt.show()
+	if medias:
+		plt.bar(nums, medias)
+		plt.title("Consulta 1: \nMédia de salário por setor")
+		plt.ylabel('Média de Salário')
+		plt.xticks(nums, ids)
+		plt.xlabel("ID do setor")
+		plt.grid(b=None, which='major', axis='y')
+		passing = max(medias)-min(medias) if max(medias)-min(medias) <= 500 and max(medias)-min(medias)!= 0 else 500
+		yticks = [i for i in range(0, int(max(medias)+passing), int(passing))]
+		plt.yticks(yticks)
+		plt.show()
+	else:
+		print("Não existem dados suficientes para serem colocados em um gráfico.\n")
 
 def consulta2():
 	query = """select c.idColaborador, count(pw.idProjeto) 
@@ -1644,16 +1649,19 @@ def consulta2():
 	print(tabulate.tabulate(table))
 	print("\n=========================================================\n")
 	
-	plt.bar(nums, medias)
-	plt.title("Consulta 2: \nNúmero de projetos por colaborador")
-	plt.ylabel('Número de Projetos')
-	plt.xticks(nums, ids)
-	plt.xlabel("ID do colaborador")
-	plt.grid(b=None, which='major', axis='y')
-	passing = max(medias)-min(medias) if max(medias)-min(medias) <= 2 and max(medias)-min(medias) != 0 else 2
-	yticks = [i for i in range(0, int(max(medias)+passing), int(passing))]
-	plt.yticks(yticks)
-	plt.show()
+	if medias:
+		plt.bar(nums, medias)
+		plt.title("Consulta 2: \nNúmero de projetos por colaborador")
+		plt.ylabel('Número de Projetos')
+		plt.xticks(nums, ids)
+		plt.xlabel("ID do colaborador")
+		plt.grid(b=None, which='major', axis='y')
+		passing = max(medias)-min(medias) if max(medias)-min(medias) <= 2 and max(medias)-min(medias) != 0 else 2
+		yticks = [i for i in range(0, int(max(medias)+passing), int(passing))]
+		plt.yticks(yticks)
+		plt.show()
+	else:
+		print("Não existem dados suficientes para serem colocados em um gráfico.\n")
 
 def consulta3():
 	query = """Select c.idCliente, sum(Valor) 
@@ -1687,17 +1695,19 @@ def consulta3():
 		table.append(dataset)
 	print(tabulate.tabulate(table))
 	print("\n=========================================================\n")
-	
-	plt.bar(nums, medias)
-	plt.title("Consulta 3: \nValor obtido por cliente")
-	plt.ylabel('Valor Obtido')
-	plt.xticks(nums, ids)
-	plt.xlabel("ID do cliente")
-	plt.grid(b=None, which='major', axis='y')
-	passing = max(medias)-min(medias) if max(medias)-min(medias) <= 500 else 500
-	yticks = [i for i in range(0, int(max(medias)+passing), int(passing))]
-	plt.yticks(yticks)
-	plt.show()
+	if medias:
+		plt.bar(nums, medias)
+		plt.title("Consulta 3: \nValor obtido por cliente")
+		plt.ylabel('Valor Obtido')
+		plt.xticks(nums, ids)
+		plt.xlabel("ID do cliente")
+		plt.grid(b=None, which='major', axis='y')
+		passing = max(medias)-min(medias) if max(medias)-min(medias) <= 500 and max(medias)-min(medias) != 0 else 500
+		yticks = [i for i in range(0, int(max(medias)+passing), int(passing))]
+		plt.yticks(yticks)
+		plt.show()
+	else: 
+		print('Não existem dados suficientes para serem colocados em um gráfico.\n')
 
 def getOut():
 	cursor.close()
