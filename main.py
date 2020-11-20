@@ -24,7 +24,7 @@ logPedidos = []
 logOrdens = []
 logNotas = []
 
-plt.style.use('grayscale')
+plt.style.use('ggplot')
 
 def menu():
 	print('MENU PRINCIPAL\n')
