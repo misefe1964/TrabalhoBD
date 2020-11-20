@@ -693,7 +693,7 @@ def tweakSetor(opt):
 			idgestor = input('Insira o id do gestor do setor: ')
 
 		salariobase = input("Insira o salário base do setor: ")
-		descricao = input("Insira a descricao do setor: ")
+		descricao = input("Insira a descrição do setor: ")
 		descricao = "'"+descricao+"'" if descricao != 'null' else descricao
 
 		insertQuery = """insert into setor
@@ -1028,7 +1028,7 @@ def tweakPedido(opt):
 		while idcliente not in stringlogClientes:
 			idcliente = input("o id inserido não consta no banco de dados. Tente novamente: ")
 
-		descricao = input("Insira a descricao do pedido: ")
+		descricao = input("Insira a descrição do pedido: ")
 		descricao = "'"+descricao+"'" if descricao != 'null' else descricao
 
 		insertQuery = """insert into pedido
@@ -1407,7 +1407,7 @@ def finalizaAtividade():
 	try:
 		cursor.execute(encerraAtividade)
 		atualizaStatus = """update atividade
-		set status = 'Encerrada'
+		set status = 'Terminado'
 		where idatividade = {}""".format(idatividade)
 		try:
 			cursor.execute(atualizaStatus)
