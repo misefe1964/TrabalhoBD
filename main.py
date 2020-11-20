@@ -24,6 +24,8 @@ logPedidos = []
 logOrdens = []
 logNotas = []
 
+plt.style.use('grayscale')
+
 def menu():
 	print('MENU PRINCIPAL\n')
 	print("""Opções:
@@ -1582,7 +1584,6 @@ def consulta1():
 
 	cursor.execute(query)
 	result = cursor.fetchall()
-	plt.style.use('seaborn-ticks')
 	ids = []
 	medias = []
 	for tupla in result:
@@ -1628,7 +1629,6 @@ def consulta2():
 
 	cursor.execute(query)
 	result = cursor.fetchall()
-	plt.style.use('seaborn-ticks')
 	ids = []
 	medias = []
 	for tupla in result:
@@ -1675,7 +1675,6 @@ def consulta3():
 
 	cursor.execute(query)
 	result = cursor.fetchall()
-	plt.style.use('seaborn-ticks')
 	ids = []
 	medias = []
 	for tupla in result:
