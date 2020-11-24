@@ -19,31 +19,34 @@ Fornecedor de Bando de Dados: PostgreSQL
 ## Descrição do funcionamento:
 
 Estabelecendo a conexão por 
-
+```python
 connection = psycopg2.connect(user="", password = "", port = "", database = "")
+```
 
 Cursor utilizado para a execução de comandos:
 
+```python
 cursor = connection.cursor()
+```
 
 #### No caso de consultas: 
-
+```python
 cursor.execute(consulta)
 
-resultado = crusor.fetchall() ou cursor.fetchone()
-
+resultado = crusor.fetchall() or cursor.fetchone()
+```
 #### No caso de operações (insert, update, delete):
 
+```python
 cursor.execute(operação)
 
 try:
-
   cursor.commit()
-  
 exept:
-
   cursor.rollback()
-  
+
+```
+
 ## Outros módulos utilizados:
 
 - *sys* para terminar a execução do programa.
