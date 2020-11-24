@@ -78,7 +78,7 @@ exept:
 
 #### [6]: Informar Saída de Colaborador
 
-> Atualiza o atributo DataSaida de um colaborador, identificado a partir do seu id. Após essa operação, a esse colaborador não se pode mais atribuir projetos e/ou atividades. 
+> Atualiza o atributo DataSaida de um colaborador, identificado a partir do seu id. Após essa operação, a esse colaborador não se pode mais atribuir projetos e/ou atividades. Em adição, o id do setor do gestor passa a ser null.
 
 #### [7]: Finalizar Atividade
 
@@ -86,11 +86,11 @@ exept:
 
 #### [8]: Atribuir Atividade a Colaborador
 
-> Adiciona uma linha à tabela Possui, que associa as tabelas Colaborador e Atividade, solicitando, além dos ids do colaborador e da atividade em questão, uma data de entrada do colaborador na atividade. Vale ressaltar que a operação de inserção só é realizada caso a data de entrada do colaborador na empresa seja anterior à data de entrada do colaborador na atividade.
+> Adiciona uma linha à tabela Possui, que associa as tabelas Colaborador e Atividade, solicitando, além dos ids do colaborador e da atividade em questão, uma data de entrada do colaborador na atividade. Vale ressaltar que a operação de inserção só é realizada caso a data de entrada do colaborador na empresa seja anterior à data de entrada do colaborador na atividade. Em adição, é também verificado se o colaborador já não saiu da empresa nessa data de atribuição.
 
 #### [9]: Atribuir Projeto a Colaborador
 
->  Adiciona uma linha à tabela Desenvolve, que associa as tabelas Colaborador e ProjetoWeb, solicitando os ids do colaborador e do projeto em questão. Vale ressaltar que a operação só é realizada caso o projeto em questão ainda não tenha sido finalizado.
+>  Adiciona uma linha à tabela Desenvolve, que associa as tabelas Colaborador e ProjetoWeb, solicitando os ids do colaborador e do projeto em questão. Vale ressaltar que a operação só é realizada caso o projeto em questão ainda não tenha sido finalizado. Em adição, caso o colaborador já tenha saído da empresa, essa operação também não pode ser realizada.
 
 #### [10]: Atribuir Projeto(s) a Pedido e Ordem de Serviço
 
