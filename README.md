@@ -96,11 +96,11 @@ exept:
 
 > Adiciona uma linha à tabela Gera, que associa as tabelas ProjetoWeb, OrdemdeServico e Pedido, solicitando os ids do Projeto, Ordem de Serviço e Pedido em questão.
 
-[11]: Realizar Consultas e Obter Gráficos
+#### [11]: Realizar Consultas e Obter Gráficos
 
 > Permite a realização das consultas elaboradas e, além de mostrar o resultado da consulta em uma tabela, gera também o gráfico de barras da mesma com o uso do módulo *matplotlib*.
 
-[12]: Ver Tabelas
+#### [12]: Ver Tabelas
 
 > Permite a visualização de todos os atributos de todas as linhas de todas as tabelas que constam no Bando de Dados. É aberto um menu de visualização em que uma única tabela por vez deve ser selecionada para a visualização.
 

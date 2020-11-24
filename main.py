@@ -1460,12 +1460,16 @@ def AtividadeColaborador():
 			where idcolaborador = {};""".format(idcolaborador)
 			cursor.execute(pegaData)
 			record = cursor.fetchone()
-			# dataEntradaColaborador = datetime.datetime(record[0])
+			dataEntradaColaborador = record[0]
+			tmp = datetime.datetime.min.time()
+			dataEntradaColaborador = datetime.datetime.combine(dataEntradaColaborador, tmp)
+
 			dataEntrada = input("Insira a data de entrada do colaborador na atividade (formado AAAA-MM-DD): ")
-			# dataEntradadatetime = datetime.datetime.strptime(dataEntrada, '%Y-%m-%d')
-			# while dataEntradadatetime < dataEntradaColaborador: 
-			# 	print("Não foi possível fazer a atribuição, pois o colaborador não estava na empresa nessa data.")
-			# 	dataEntrada = input("Tente inserir uma data posterior: ")
+			dataEntradadatetime = datetime.datetime.strptime(dataEntrada, '%Y-%m-%d')
+			while dataEntradadatetime < dataEntradaColaborador: 
+				print("Não foi possível fazer a atribuição, pois o colaborador não estava na empresa nessa data.")
+				dataEntrada = input("Tente inserir uma data posterior (AAAA-MM-DD): ")
+				dataEntradadatetime = datetime.datetime.strptime(dataEntrada, '%Y-%m-%d')
 
 			dataEntrada = "'"+dataEntrada+"'" if dataEntrada != 'null' else dataEntrada
 			insercao = """insert into possui (idColaborador, idAtividade, dataEntrada)
