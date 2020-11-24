@@ -42,7 +42,7 @@ cursor.execute(operação)
 
 try:
   cursor.commit()
-exept:
+except:
   cursor.rollback()
 
 ```
