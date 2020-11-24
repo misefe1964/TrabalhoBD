@@ -12,7 +12,7 @@ Milena Seibert Fernandes (18102152)
 
 Linguagem: Python 3.6.9
 
-Driver: Psycopg2
+Driver: Psycopg2 2.7.4
 
 Fornecedor de Bando de Dados: PostgreSQL
 
@@ -103,6 +103,10 @@ exept:
 #### [12]: Ver Tabelas
 
 > Permite a visualização de todos os atributos de todas as linhas de todas as tabelas que constam no Bando de Dados. É aberto um menu de visualização em que uma única tabela por vez deve ser selecionada para a visualização.
+
+#### [13]: Sair
+
+> Fecha o cursor, bem como a conexão com o banco de dados, e encerra a execução do programa com o uso do módulo *sys*.
 
 ## Observações:
 
