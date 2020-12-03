@@ -632,7 +632,7 @@ def tweakCliente(opt):
 				connection.rollback()
 
 		# se idcliente inserido não consta no banco de dados
-		elif idcliente not in logClientes:
+		elif idcliente not in stringlogClientes:
 
 			# verifica se valor inserido é um número inteiro
 			try:
