@@ -81,7 +81,7 @@ except:
 
 #### [6]: Informar Saída de Colaborador
 
-> Atualiza o atributo DataSaida de um colaborador, identificado a partir do seu id. Após essa operação, a esse colaborador não se pode mais atribuir projetos e/ou atividades. Em adição, o id do setor do gestor passa a ser null.
+> Atualiza o atributo DataSaida de um colaborador, identificado a partir do seu id. Após essa operação, a esse colaborador não se pode mais atribuir projetos e/ou atividades. Em adição, o id do setor do colaborador passa a ser null.
 
 #### [7]: Finalizar Atividade
 
@@ -105,7 +105,7 @@ except:
 
 #### [12]: Ver Tabelas
 
-> Permite a visualização de todos os atributos de todas as linhas de todas as tabelas que constam no Bando de Dados. É aberto um menu de visualização em que uma única tabela por vez deve ser selecionada para a visualização.
+> Permite a visualização de todos os atributos de todas as linhas de todas as tabelas que constam no Banco de Dados. É aberto um menu de visualização em que uma única tabela por vez deve ser selecionada para a visualização.
 
 #### [13]: Sair
 
