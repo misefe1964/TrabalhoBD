@@ -644,7 +644,7 @@ def tweakCliente(opt):
 				print("O id de cliente inserido não é um número inteiro.")
 			
 		# se idcliente consta no banco de dados
-		elif idCliente != '':
+		elif idcliente != '':
 			deleteQuery = deleteQuery+" where idCliente = {};".format(idcliente)
 
 			# tenta deletar linha específica da tabela
